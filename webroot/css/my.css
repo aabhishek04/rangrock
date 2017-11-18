@@ -1,0 +1,24 @@
+
+.pwd input[type="password"] {
+  position: relative;
+  padding: 8px;
+  left: 115px;
+  top: 25px;
+}
+.email input[type="email"] {
+  position: relative;
+  padding: 8px;
+  left: 115px;
+  top: 40px;
+}
+.btn button[type="submit"] {
+  position: relative;
+  left: 115px;
+  top: 55px;
+  padding: 8px;
+  width: 382px;
+  border: 1px solid #000000;
+  color: #ffffff;
+  background-color: #ab0a0a;
+}
+div.btn button[type="submit"]:hover {}
