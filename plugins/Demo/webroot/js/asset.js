@@ -31,5 +31,28 @@
   return this.optional( element ) || /^[a-zA-Z]$/.test( value );
 }, 'NOT Allow.');
 
+$("#searchform").validate({
+        ignore: ":hidden",
+        errorElement: 'span',
+        errorClass: 'help-inline',
+        highlight: function (element) {
+            $(element).parent().addClass("error");
+        },
+        unhighlight: function (element) {
+            $(element).parent().removeClass("error");
+        },
+        rules: {
+            "search": {
+                required: true,
+                
+            }
+        },
+        messages: {
+            "search": {
+                required: 'can not be blank',
+            }
+        },
+    });
+
 
 
