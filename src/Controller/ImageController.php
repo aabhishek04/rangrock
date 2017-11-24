@@ -19,6 +19,7 @@ class ImageController extends AppController {
         $this->image= TableRegistry::get('Users');
             if ($this->request->is('post')) {
                 pr($this->request->data);
+//                exit;
                 if (!empty($this->request->data['image_file']['tmp_name']) && is_uploaded_file($this->request->data['image_file']['tmp_name'])) {
                 $path_info = pathinfo($this->request->data['image_file']['name']);
                     chmod($this->request->data['image_file']['tmp_name'], 0644);
