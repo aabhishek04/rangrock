@@ -7,5 +7,5 @@
             <?php echo $this->Form->input('', ['type'=>'file','class' => 'form-control','name'=>'image_file','id'=>'image_file','placeholder' => 'Image upload',]); ?>
         </div>
         <button type="submit" class="btn btn-default " id="imageBtn"> Upload </button>
-    <?= $this->Form->end() ?>
+    <?= $this->Form->end() ?> 
 </div>

@@ -7,6 +7,8 @@ use Cake\View\Helper;
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 use Cake\View\View;
+use Cake\I18n;
+use Cake\I18n\Time ;
 
 class ImageController extends AppController {
 
@@ -16,7 +18,17 @@ class ImageController extends AppController {
     }
     public function upload(){
         
-        $this->image= TableRegistry::get('Users');
+        $time = Time::now();
+//        $timeForDatabase = (new Time($time,'Asia/Dubai'))->setTimezone(new DateTimeZone('UTC'));
+//        $timeForUser = $timeFromDatabase->setTimezone('Asia/Dubai');
+//        
+//        $date = new \DateTime($time, new \DateTimeZone('Asia/Dubai'));
+//        echo $date->format('Y-m-d H:i:sP') . "\n";
+//
+//        $date->setTimezone(new DateTimeZone('Pacific/Chatham'));
+//        echo $date->format('Y-m-d H:i:sP') . "\n";
+        
+        $this->Services= TableRegistry::get('Services');
             if ($this->request->is('post')) {
                 pr($this->request->data);
 //                exit;
@@ -35,6 +47,22 @@ class ImageController extends AppController {
                 $this->Flash->error(__('Please upload Image file'));
             }
         }
+        
+        $this->set(compact('timeForDatabase', 'timeForUser','time'));
+        
+    }
+    public function imges(){
+        
+        $this->Services = TableRegistry::get('Services');
+        $data = $this->Services->find()
+                ->select(['image'])
+                ->where(['id'=>1])
+                ->toArray();
+        foreach($data as $data){
+            $data =$data['image'];
+        }
+//        pr($data);
+         $this->set(compact('data'));
         
     }
     public function beforeRender(Event $event) {

@@ -217,3 +217,5 @@ if (Configure::read('debug')) {
 }
 plugin::load('Demo',['autoload'=>true]);
 Plugin::load('AssetCompress', ['bootstrap' => true]);
+
+date_default_timezone_set('UTC');
